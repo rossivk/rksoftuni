@@ -16,8 +16,13 @@
  */
 
 // include 'includes/cpt-services.php';
+
+
 if (!defined('SERVICES_INCLUDE')) {
     define('SERVICES_INCLUDE', plugin_dir_path(__FILE__) . 'includes');
+}
+if (!defined('SERVICES_ASSETS')) {
+    define('SERVICES_ASSETS', plugin_dir_path(__FILE__) . 'assets');
 }
 
 require SERVICES_INCLUDE . '/cpt-services.php';

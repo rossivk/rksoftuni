@@ -1,48 +1,30 @@
 <?php
 
+function rksoftuni_plugin_enqueue_assets()
+{
+
+    $args = array();
+    wp_enqueue_script('rksoftuni_plugin', SERVICES_ASSETS . '/js/script.js', array('jquery'), '1.1',  $args);
+
+    wp_localize_script('rksoftuni_plugin', 'my_ajax_action', array('ajax_url' => admin_url('admin-ajax.php'),));
+}
+add_action('wp_enqueue_scripts', 'rksoftuni_plugin_enqueue_assets');
+
+
 /**
  * Essential theme supports
  * */
 function rksortuni_features()
 {
-    add_theme_support('post-thumbnails');
     add_image_size('iconBig', 64, 64, true);
     add_image_size('pageBanner', 1500, 300, true);
 }
 add_action('after_setup_theme', 'rksortuni_features');
 
 
-// Load the theme stylesheets
-
-/**
- * Never worry about cache again!
- */
-function rvksoftuni_assets($hook)
-{
-    // create my own version codes
-    // $my_js_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'js/custom.js' ));
-    // $my_css_ver = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'style.css' ));
-    // 
-
-    // $args = array(
-    //     'in_footer' => true,
-    //     'strategy' => 'defer',
-    // );
-    wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/script.js', array(), '1.0.0', true);
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.js', array('jquery'), '1.0.0', true);
-    wp_enqueue_script('wow-min', get_template_directory_uri() . '/assets/wow/wow.min.js', array(), '1.0.0', true);
-    wp_enqueue_script('touchSwipe-min', get_template_directory_uri() . '/assets/mobile/touchSwipe.min.js', array(), '1.0.0', true);
-
-
-    wp_enqueue_style('animate', get_template_directory_uri() . '/assets/animate/animate.css', false,   '1.0.0');
-    wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.css', false,   '1.0.0');
-    wp_enqueue_style('main_css', get_template_directory_uri() . '/assets/style.css', false,   '1.0.0');
-}
-add_action('wp_enqueue_scripts', 'rvksoftuni_assets');
-
-
-//Register menus
-
+/*
+*Register menus
+*/
 function rksoftuni_register_nav_menus()
 {
     register_nav_menus(
@@ -55,8 +37,9 @@ function rksoftuni_register_nav_menus()
 }
 add_action('after_setup_theme', 'rksoftuni_register_nav_menus');
 
-
-// Register a sidebar.
+/*
+ * Register a sidebar.
+ */
 function rvsoftuni_sidebars()
 {
     register_sidebar(array(
@@ -81,12 +64,10 @@ function rvsoftuni_sidebars()
 
 add_action('widgets_init', 'rvsoftuni_sidebars');
 
-
 /**
  * Custom Shortcodes
  * 
  * [custom_greeting] returns a greeting with an attribute name.
- * @return string Current Year
  */
 
 function custom_greeting_shortcode($atts)
@@ -103,9 +84,6 @@ function custom_greeting_shortcode($atts)
 add_shortcode('custom_greeting', 'custom_greeting_shortcode');
 
 
-/*
-* AJAX function to show latest post excerpt.
-*/
 function click_me_to_read()
 {
     $my_data = $_POST['ajax_data'];

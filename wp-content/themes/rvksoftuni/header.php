@@ -6,9 +6,10 @@
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title><?php wp_title(); ?></title>
+    <title><?php wp_title('|', true, 'right'); ?></title>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+
     <?php if (is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
 
     <!-- Google fonts -->
