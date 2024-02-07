@@ -34,6 +34,7 @@
         </div>
 
     </div>
+    <!-- # Footer Ends -->
     <a href="#home" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
 
     <?php wp_footer(); ?>
