@@ -84,6 +84,11 @@ function custom_greeting_shortcode($atts)
 add_shortcode('custom_greeting', 'custom_greeting_shortcode');
 
 
+
+
+/*
+* AJAX function to show latest post excerpt.
+*/
 function click_me_to_read()
 {
     $my_data = $_POST['ajax_data'];

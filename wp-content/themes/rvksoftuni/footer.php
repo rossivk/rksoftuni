@@ -28,15 +28,12 @@
                     ?>
                 </div>
             </div>
-
-
             <div class="text-center spacer">
                 Powered by: <a href="http://thebootstrapthemes.com">www.thebootstrapthemes.com</a>
             </div>
         </div>
 
     </div>
-    <!-- # Footer Ends -->
     <a href="#home" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
 
     <?php wp_footer(); ?>

@@ -6,7 +6,6 @@
              <!-- main banner-->
              <h1 class="text-center page-post"><?php the_title(); ?></h1>
              <!-- main banner-->
-
          </div>
      </div>
      <div class="wrapper">
@@ -21,7 +20,6 @@
                              </div>
                          </div>
                      </div>
-
                  <?php endwhile; ?>
              <?php else : ?>
                  No posts avalable.

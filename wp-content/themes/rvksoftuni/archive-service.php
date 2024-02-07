@@ -3,7 +3,6 @@
 
 <div class="banner" style="background-image: url(<?php echo the_field('page_banner_background_image'); ?>); ">
     <div class="overlay">
-        <!-- main banner-->
         <h2 class="text-center" style="padding:5rem 0; color:whitesmoke;"><a style="color:whitesmoke; text-decoration:underline;" href="<?php echo get_home_url(); ?>">Home</a> | <?php the_archive_title(); ?></h2>
     </div>
 </div>
